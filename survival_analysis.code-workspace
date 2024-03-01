@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../modular-cis-sims/cisRuns"
 		}
 	]
 }
