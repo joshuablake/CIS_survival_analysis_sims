@@ -3,7 +3,7 @@ library(purrr)
 library(tidyr)
 setwd(here::here("."))
 source(here::here("R/data.R"))
-source(here::here("R/simulations.R"))
+source(here::here("10_sims/simulations.R"))
 
 cis_test_times = read_CIS_testing_schedules()
 ataccc_truth = get_truth_curve()
