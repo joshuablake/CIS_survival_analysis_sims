@@ -53,10 +53,14 @@ curve_to_duration = function(curve) {
         cisSimulation::duration_custom()
 }
 
-get_truth_curve = function() {
+get_raw_truth_curve = function() {
     combine_SARAH_ATACCC(
         process_SARAH_curves(),
         atacccDurationEstimates::ataccc_posterior_summary_stats()
-    ) |>
+    )
+}
+
+get_truth_curve = function() {
+    get_raw_truth_curve() |>
         curve_to_duration()
 }
