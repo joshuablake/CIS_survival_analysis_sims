@@ -1,6 +1,7 @@
 library(dplyr)
 library(tidyr)
 source(here::here("20_sims/define_runs.R"))
+source(here::here("R/utils.R"))
 
 JOB_NUM = commandArgs(trailingOnly = TRUE)[1] |> as.integer()
 set.seed(JOB_NUM)
@@ -16,7 +17,7 @@ read_sims = function(sensivitiy) {
         1.0 ~ 401,
         NA ~ 601
     )
-    paste0("~/rds/hpc-work/PhD_survival_analysis/10_sims/results_", file_number, ".rds") |>
+    paste0(output_dir, "10_sims/results_", file_number, ".rds") |>
         readRDS()
 }
 
@@ -54,6 +55,6 @@ result = run(
 print("Saving result")
 saveRDS(
     result,
-    paste0("~/rds/hpc-work/PhD_survival_analysis/20_sims/results_", JOB_NUM, ".rds")
+    paste0(output_dir, "20_sims/results_", JOB_NUM, ".rds")
 )
 print("Finished")

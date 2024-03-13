@@ -32,5 +32,5 @@ tbl_sims = map(1:800, read_job) |>
 
 saveRDS(
     tbl_sims,
-    "~/rds/hpc-work/PhD_survival_analysis/output/sims.rds"
+    paste0(output_dir, "output/sim_reps.rds")
 )

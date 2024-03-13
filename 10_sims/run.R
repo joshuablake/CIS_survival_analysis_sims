@@ -3,6 +3,7 @@ library(purrr)
 library(tidyr)
 setwd(here::here("."))
 source(here::here("R/data.R"))
+source(here::here("R/utils.R"))
 source(here::here("10_sims/simulations.R"))
 
 cis_test_times = read_CIS_testing_schedules()
@@ -43,5 +44,5 @@ all_results = list(
 
 saveRDS(
   all_results,
-  paste0("~/rds/hpc-work/PhD_survival_analysis/10_sims/results_", JOB_NUM, ".rds")
+  paste0(output_dir, "10_sims/results_", JOB_NUM, ".rds")
 )
