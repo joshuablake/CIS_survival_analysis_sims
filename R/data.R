@@ -15,17 +15,17 @@ process_SARAH_curves = function(filename = here::here("data/2021-07-19_clearance
         filename, 
         col_types = readr::cols(.default = "double")
     ) |>
-        transmute(
+    transmute(
         time = timevar + 1,
         S = cis,
-        ) |>
-        add_row(time = 1, S = 1) |>
-        arrange(time) |>
-        mutate(
+    ) |>
+    add_row(time = 1, S = 1) |>
+    arrange(time) |>
+    mutate(
         F = c(1 - lead(S)[-n()], 1),
         f = diff(c(0, F)),
         lambda = if_else(S == 0, 0, f / S)
-        )
+    )
 
 }
 
