@@ -12,7 +12,7 @@ tbl_perf_test = tibble(
 
 tbl_imperf_well_specified = expand_grid(
     sensitivity.model = c(0.6, 0.8),
-    survival_prior = c("ATACCC", "RW2"),
+    survival_prior = c("ATACCC", "vague"),
 ) |>
     mutate(
         sensitivity.simulation = sensitivity.model
